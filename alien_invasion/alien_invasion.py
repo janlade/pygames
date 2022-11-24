@@ -5,7 +5,6 @@ Created on Tue Nov 22 15:04:34 2022
 @author: jan.lade
 """
 
-import sys
 
 import pygame
 
@@ -21,14 +20,15 @@ class AlienInvasion:
         
     def run_game(self):
         """Start the main loop for the game."""
-        while True:
+        RUNNING = True
+        while RUNNING:
             # Watch for keyboard and mouse events.
             for event in pygame.event.get():
                 if event.type == pygame.QUIT:
-                    sys.exit()
-                    
-            # Make the mot recently drawn screen visible.
-            pygame.display.flip()
+                    RUNNING = False
+        # Make the mot recently drawn screen visible.
+        pygame.display.flip()
+        pygame.quit()       
             
 if __name__ == '__main__':
     # Make a game instance, and run the game
